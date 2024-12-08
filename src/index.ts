@@ -17,13 +17,6 @@ export class Goban {
         this.goban = goban;
     }
 
-    /**
-     * Get the status of a given position
-     *
-     * @param x - The x coordinate
-     * @param y - The y coordinate
-     * @returns A Status
-     */
     getStatus(x: number, y: number): Status {
         if (
             !this.goban ||
@@ -44,13 +37,6 @@ export class Goban {
         throw new Error(`Unknown goban value ${this.goban[y][x]}`);
     }
 
-    /**
-     * Checks if a position is taken
-     *
-     * @param x - The x coordinate
-     * @param y - The y coordinate
-     * @returns A boolean indicating whether the position is taken
-     */
     isTaken(x: number, y: number): boolean {
         const stoneStatus = this.getStatus(x, y);
         if (stoneStatus === (Status.OUT || Status.EMPTY)) return false
